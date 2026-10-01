@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TacticalHeader } from './components/layout/TacticalHeader';
 import { NavigationRibbon, ActiveModule } from './components/layout/NavigationRibbon';
+import { ForwardLogisticsCommand } from './components/workflow/ForwardLogisticsCommand';
 import { TacticalGISMap } from './components/map/TacticalGISMap';
 import { PredictiveEngine } from './components/forecasting/PredictiveEngine';
 import { DepotInventoryGrid } from './components/inventory/DepotInventoryGrid';
@@ -13,7 +14,7 @@ import { ForwardPost, MountainPass, ConvoyMovement, RequisitionIndent, Simulatio
 import { Radio } from 'lucide-react';
 
 export const App: React.FC = () => {
-  const [activeModule, setActiveModule] = useState<ActiveModule>('MAP');
+  const [activeModule, setActiveModule] = useState<ActiveModule>('COMMAND');
   const [selectedPostId, setSelectedPostId] = useState<string>('post-siachen-114');
   const [posts] = useState<ForwardPost[]>(FORWARD_POSTS);
   const [passes, setPasses] = useState<MountainPass[]>(MOUNTAIN_PASSES);
@@ -187,6 +188,19 @@ export const App: React.FC = () => {
 
       {/* 3. Main Interactive Workspace */}
       <main className="flex-1 p-3 max-w-[1600px] w-full mx-auto overflow-y-auto">
+        {activeModule === 'COMMAND' && (
+          <ForwardLogisticsCommand
+            posts={posts}
+            passes={passes}
+            convoys={convoys}
+            onNavigateModule={setActiveModule}
+            onSelectPost={(id) => {
+              setSelectedPostId(id);
+              setActiveModule('FORECASTING');
+            }}
+          />
+        )}
+
         {activeModule === 'MAP' && (
           <TacticalGISMap
             posts={posts}

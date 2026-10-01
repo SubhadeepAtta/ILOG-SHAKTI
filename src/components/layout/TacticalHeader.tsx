@@ -30,54 +30,54 @@ export const TacticalHeader: React.FC<TacticalHeaderProps> = ({
   }, []);
 
   return (
-    <header className="tactical-header-bg text-khaki-100 px-4 py-2.5 select-none border-b border-steel-800">
+    <header className="bg-[#0c0f12] text-zinc-200 px-3 py-2 select-none border-b border-[#1f262e] font-mono">
       {/* Top Banner Row */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-2.5">
         {/* Unit & System Identification */}
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded bg-drab-900 border border-drab-700 flex items-center justify-center text-khaki-300 shadow-inner">
-            <Shield className="w-6 h-6 text-drab-300" />
+        <div className="flex items-center space-x-2.5">
+          <div className="w-8 h-8 bg-[#161c22] border border-[#2b3744] flex items-center justify-center text-zinc-300">
+            <Shield className="w-4 h-4 text-neutral-300" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <span className="font-mono text-xs tracking-wider px-1.5 py-0.5 rounded bg-drab-800 border border-drab-600 text-khaki-300 uppercase font-semibold">
+              <span className="text-[10px] tracking-wider px-1 py-0.2 bg-[#1b2229] border border-[#2a3541] text-zinc-300 uppercase font-semibold">
                 HQ 14 CORPS // NORTHERN COMMAND
               </span>
-              <span className="text-[11px] font-mono text-steel-400">SIH-26251 (DSSC)</span>
+              <span className="text-[10px] text-neutral-500">DSSC PS-26251</span>
             </div>
-            <h1 className="text-base font-bold tracking-tight text-khaki-50 flex items-center space-x-1.5 mt-0.5">
+            <h1 className="text-sm font-bold tracking-tight text-zinc-100 flex items-center space-x-1.5 mt-0.5">
               <span>ILOG-SHAKTI</span>
-              <span className="text-steel-500 font-normal">|</span>
-              <span className="font-medium text-xs text-khaki-200 uppercase tracking-wide">
-                Predictive Forward Logistics & Multi-Modal Supply Management
+              <span className="text-neutral-600 font-normal">|</span>
+              <span className="font-normal text-xs text-neutral-400 uppercase tracking-wide">
+                FORWARD LOGISTICS COMMAND & REPLENISHMENT DIRECTIVE
               </span>
             </h1>
           </div>
         </div>
 
         {/* Tactical Controls & Status */}
-        <div className="flex items-center flex-wrap gap-2.5">
+        <div className="flex items-center flex-wrap gap-2">
           {/* Live Zulu & IST Clocks */}
-          <div className="flex items-center space-x-3 px-3 py-1.5 rounded bg-steel-900 border border-steel-800 font-mono text-xs">
-            <Clock className="w-3.5 h-3.5 text-steel-400" />
-            <div className="flex space-x-2">
-              <span className="text-khaki-200 font-semibold">{formatZuluTime(time)}</span>
-              <span className="text-steel-500">/</span>
-              <span className="text-steel-300">{formatISTTime(time)}</span>
+          <div className="flex items-center space-x-2 px-2.5 py-1 bg-[#13171c] border border-[#222b33] text-xs">
+            <Clock className="w-3.5 h-3.5 text-neutral-400" />
+            <div className="flex space-x-1.5">
+              <span className="text-zinc-100 font-semibold">{formatZuluTime(time)}</span>
+              <span className="text-neutral-600">/</span>
+              <span className="text-neutral-400">{formatISTTime(time)}</span>
             </div>
-            <span className="text-steel-500 font-normal border-l border-steel-800 pl-2">
+            <span className="text-neutral-600 border-l border-[#222b33] pl-2">
               {formatMilitaryDate(time)}
             </span>
           </div>
 
           {/* Operational Posture Selector */}
-          <div className="flex items-center space-x-1.5 bg-steel-900 border border-steel-800 px-2 py-1 rounded text-xs font-mono">
-            <Crosshair className="w-3.5 h-3.5 text-khaki-400" />
-            <span className="text-steel-400 hidden sm:inline">OP-POSTURE:</span>
+          <div className="flex items-center space-x-1.5 bg-[#13171c] border border-[#222b33] px-2 py-1 text-xs">
+            <Crosshair className="w-3.5 h-3.5 text-neutral-400" />
+            <span className="text-neutral-400 hidden sm:inline text-[11px]">POSTURE:</span>
             <select
               value={simulationParams.operationalPosture}
               onChange={(e) => onUpdateParams({ operationalPosture: e.target.value as any })}
-              className="bg-steel-800 text-khaki-200 border border-steel-700 rounded px-1.5 py-0.5 text-xs focus:outline-none focus:border-drab-500 font-mono"
+              className="bg-[#1b222a] text-zinc-200 border border-[#2e3b48] px-1.5 py-0.5 text-xs focus:outline-none focus:border-[#4f6479]"
             >
               <option value="PEACE_BUFFER">PEACE BUFFER (DEFCON-4)</option>
               <option value="WINTER_STOCKING">WSSR WINTER STOCKING (ACTIVE)</option>
@@ -88,22 +88,22 @@ export const TacticalHeader: React.FC<TacticalHeaderProps> = ({
           {/* Offline Resilient Mesh Sync Toggle */}
           <button
             onClick={onToggleOffline}
-            title="Simulate border forward post running disconnected on local tactical mesh"
-            className={`flex items-center space-x-1.5 px-2.5 py-1 rounded text-xs font-mono border transition-all ${
+            title="Toggle border forward post running disconnected on local tactical mesh"
+            className={`flex items-center space-x-1.5 px-2.5 py-1 text-xs border transition-colors ${
               isOfflineMode
-                ? 'bg-amber-950/80 border-amber-700 text-amber-200 hover:bg-amber-900/90'
-                : 'bg-steel-900 border-steel-700 text-steel-300 hover:bg-steel-800'
+                ? 'bg-amber-950/80 border-amber-700 text-amber-200'
+                : 'bg-[#13171c] border-[#222b33] text-neutral-400 hover:text-zinc-200'
             }`}
           >
             {isOfflineMode ? (
               <>
                 <WifiOff className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-                <span className="font-semibold">TACTICAL MESH (OFFLINE)</span>
+                <span className="font-semibold text-[11px]">TACTICAL MESH (OFFLINE)</span>
               </>
             ) : (
               <>
                 <Wifi className="w-3.5 h-3.5 text-emerald-400" />
-                <span>VSAT SECURE (ONLINE)</span>
+                <span className="text-[11px]">VSAT SECURE (ONLINE)</span>
               </>
             )}
           </button>
@@ -111,20 +111,20 @@ export const TacticalHeader: React.FC<TacticalHeaderProps> = ({
       </div>
 
       {/* Operational Summary Strip */}
-      <div className="mt-2.5 pt-2 border-t border-steel-900 flex flex-wrap items-center justify-between text-xs font-mono text-steel-400 gap-2">
+      <div className="mt-1.5 pt-1.5 border-t border-[#1b2229] flex flex-wrap items-center justify-between text-[11px] text-neutral-400 gap-2">
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span>FORWARD POSTS: <strong className="text-khaki-200">6 MONITORED</strong></span>
+            <span className="w-1.5 h-1.5 bg-emerald-500 inline-block"></span>
+            <span>FORWARD POSTS: <strong className="text-zinc-200">6 MONITORED</strong></span>
           </div>
 
           <div className="flex items-center space-x-1.5">
-            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
-            <span>ACTIVE CONVOYS: <strong className="text-khaki-200">{activeConvoyCount} IN TRANSIT</strong></span>
+            <span className="w-1.5 h-1.5 bg-sky-500 inline-block"></span>
+            <span>ACTIVE CONVOYS: <strong className="text-zinc-200">{activeConvoyCount} IN TRANSIT</strong></span>
           </div>
 
           {blockedPassCount > 0 ? (
-            <div className="flex items-center space-x-1.5 text-amber-400 bg-amber-950/40 px-2 py-0.5 rounded border border-amber-800/40">
+            <div className="flex items-center space-x-1.5 text-amber-400 bg-amber-950/40 px-1.5 py-0.2 border border-amber-800/60">
               <AlertTriangle className="w-3 h-3 text-amber-400" />
               <span>PASS RESTRICTIONS: <strong>{blockedPassCount} BLOCKED/RESTRICTED</strong></span>
             </div>
@@ -135,17 +135,17 @@ export const TacticalHeader: React.FC<TacticalHeaderProps> = ({
           )}
 
           {criticalAlertCount > 0 && (
-            <div className="flex items-center space-x-1.5 text-red-400 bg-red-950/40 px-2 py-0.5 rounded border border-red-800/50">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+            <div className="flex items-center space-x-1.5 text-red-400 bg-red-950/40 px-1.5 py-0.2 border border-red-800/60">
+              <span className="w-1.5 h-1.5 bg-red-500 inline-block"></span>
               <span>DEPLETION ALERTS: <strong>{criticalAlertCount} FORWARD POSTS &lt; 7 DOS</strong></span>
             </div>
           )}
         </div>
 
-        <div className="text-[11px] text-steel-500 flex items-center space-x-1">
+        <div className="text-[10px] text-neutral-500 flex items-center space-x-1">
           <span>CLASSIFICATION:</span>
-          <span className="text-khaki-400 font-bold bg-steel-900 px-1 rounded border border-steel-800">
-            RESTRICTED // FOR OFFICIAL OPERATIONAL USE ONLY
+          <span className="text-neutral-400 font-bold bg-[#14191e] px-1 border border-[#222b33]">
+            RESTRICTED // MILITARY OPERATIONAL USE ONLY
           </span>
         </div>
       </div>

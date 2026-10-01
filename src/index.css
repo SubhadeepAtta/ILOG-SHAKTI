@@ -15,20 +15,20 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #12171c;
+    background: black;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2a353f;
+    background: #3f4d5b;
     border-radius: 2px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #3e4f5e;
+    background: #42515f;
   }
 }
 
 /* Military tactical utility classes */
 .tactical-border {
-  border: 1px solid #232c35;
+  border: 1px solid #1f2831;
 }
 
 .tactical-border-subtle {
@@ -53,6 +53,6 @@
 .tactical-grid-bg {
   background-image: 
     linear-gradient(to right, rgba(42, 54, 66, 0.25) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(42, 54, 66, 0.25) 1px, transparent 1px);
+    linear-gradient(to bottom, rgba(46, 58, 70, 0.25) 1px, transparent 1px);
   background-size: 24px 24px;
 }

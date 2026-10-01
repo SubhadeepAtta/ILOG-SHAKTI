@@ -3,8 +3,9 @@ import { ForwardPost } from '../types/logistics';
 export const FORWARD_POSTS: ForwardPost[] = [
   {
     id: 'post-siachen-114',
+    designator: 'B-17',
     code: 'FDL-SN-114',
-    name: 'Post 114 (Siachen Ridge Sector)',
+    name: 'Forward Post B-17 (Siachen Ridge Sector)',
     sector: 'SIACHEN_SUBSECTOR',
     formation: '102 Indep Inf Bde / 3 Inf Div',
     coordinates: {
@@ -35,8 +36,9 @@ export const FORWARD_POSTS: ForwardPost[] = [
   },
   {
     id: 'post-dbo-alg',
+    designator: 'B-18',
     code: 'FDU-DSDBO-01',
-    name: 'Daulat Beg Oldi (DBO Post & ALG)',
+    name: 'Forward Post B-18 (Daulat Beg Oldi ALG)',
     sector: 'LADAKH_NORTH',
     formation: 'Sub-Sector North (SSN) HQ',
     coordinates: {
@@ -67,8 +69,9 @@ export const FORWARD_POSTS: ForwardPost[] = [
   },
   {
     id: 'post-galwan-km120',
+    designator: 'B-19',
     code: 'FDL-GLW-12',
-    name: 'Galwan Forward Node (KM-120)',
+    name: 'Forward Post B-19 (Galwan KM-120)',
     sector: 'LADAKH_NORTH',
     formation: '81 Bde / 3 Inf Div',
     coordinates: {
@@ -99,8 +102,9 @@ export const FORWARD_POSTS: ForwardPost[] = [
   },
   {
     id: 'post-chushul-gap',
+    designator: 'B-22',
     code: 'FDU-CSL-03',
-    name: 'Chushul Sector Forward Garrison',
+    name: 'Forward Post B-22 (Chushul Sector)',
     sector: 'LADAKH_NORTH',
     formation: '114 Inf Bde',
     coordinates: {
@@ -131,8 +135,9 @@ export const FORWARD_POSTS: ForwardPost[] = [
   },
   {
     id: 'post-dras-tololing',
+    designator: 'B-08',
     code: 'FDL-DRS-08',
-    name: 'Dras High-Ridge Node (Tololing Axis)',
+    name: 'Forward Post B-08 (Dras Tololing Axis)',
     sector: 'KARGIL_DRAS',
     formation: '56 Mtn Bde / 8 Mtn Div',
     coordinates: {
@@ -163,8 +168,9 @@ export const FORWARD_POSTS: ForwardPost[] = [
   },
   {
     id: 'post-leh-base',
+    designator: 'HQ-14',
     code: 'HQ-14CORPS-FSD',
-    name: '14 Corps Forward Supply Depot (FSD Leh)',
+    name: 'HQ-14 Base Depot (14 Corps FSD Leh)',
     sector: 'LADAKH_NORTH',
     formation: 'HQ 14 Corps Logistics Command',
     coordinates: {

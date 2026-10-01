@@ -3,7 +3,8 @@ import { MountainPass, ConvoyMovement } from '../types/logistics';
 export const MOUNTAIN_PASSES: MountainPass[] = [
   {
     id: 'pass-khardung-la',
-    name: 'Khardung La Pass',
+    routeCode: 'R-17',
+    name: 'Khardung La Pass (Route R-17)',
     elevationFt: 17982,
     axis: 'Leh - South Pullu - North Pullu - Partapur (Nubra / Siachen)',
     status: 'CHAINS_MANDATORY',
@@ -15,7 +16,8 @@ export const MOUNTAIN_PASSES: MountainPass[] = [
   },
   {
     id: 'pass-chang-la',
-    name: 'Chang La Pass',
+    routeCode: 'R-21',
+    name: 'Chang La Pass (Route R-21)',
     elevationFt: 17688,
     axis: 'Karu - Shakti - Chang La - Tangste - Durbuk (Pangong / DSDBO)',
     status: 'OPEN',
@@ -27,7 +29,8 @@ export const MOUNTAIN_PASSES: MountainPass[] = [
   },
   {
     id: 'pass-zojila',
-    name: 'Zojila Pass',
+    routeCode: 'R-32',
+    name: 'Zojila Pass (Route R-32)',
     elevationFt: 11575,
     axis: 'Sonamarg - Baltal - Zojila - Dras - Kargil - Leh (NH-1D)',
     status: 'ONE_WAY_RESTRICTED',
@@ -39,7 +42,8 @@ export const MOUNTAIN_PASSES: MountainPass[] = [
   },
   {
     id: 'pass-fotu-la',
-    name: 'Fotu La Pass',
+    routeCode: 'R-09',
+    name: 'Fotu La Pass (Route R-09)',
     elevationFt: 13478,
     axis: 'Kargil - Bodhkharbu - Fotu La - Lamayuru - Khalsi',
     status: 'OPEN',
@@ -51,7 +55,8 @@ export const MOUNTAIN_PASSES: MountainPass[] = [
   },
   {
     id: 'pass-sasser-la',
-    name: 'Sasser La Transit Zone',
+    routeCode: 'R-44',
+    name: 'Sasser La Transit Zone (Route R-44)',
     elevationFt: 17753,
     axis: 'Panamik - Sasser La - Shyok Valley (Special High-Altitude Route)',
     status: 'CLOSED_BLIZZARD',

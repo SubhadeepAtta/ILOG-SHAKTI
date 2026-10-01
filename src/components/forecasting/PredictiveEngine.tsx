@@ -8,7 +8,7 @@ import {
   Users, 
   Clock, 
   ShieldAlert, 
-  Sparkles, 
+  Activity, 
   AlertCircle,
   BarChart3,
   Calendar
@@ -53,44 +53,44 @@ export const PredictiveEngine: React.FC<PredictiveEngineProps> = ({
 
   return (
     <div className="space-y-3 select-none">
-      {/* Top Banner: Scenario Parameters & ML Model Toggle */}
-      <div className="bg-steel-900 border border-steel-800 rounded p-3">
-        <div className="flex flex-wrap items-center justify-between pb-2.5 mb-3 border-b border-steel-800 gap-2">
+      {/* Top Banner: Scenario Parameters & Model Toggle */}
+      <div className="bg-[#14191e] border border-[#242e37] p-3">
+        <div className="flex flex-wrap items-center justify-between pb-2.5 mb-3 border-b border-[#242e37] gap-2">
           <div className="flex items-center space-x-2">
-            <div className="p-1 rounded bg-drab-900 border border-drab-700 text-khaki-300">
-              <Cpu className="w-4 h-4 text-drab-400" />
+            <div className="p-1 bg-[#1a2228] border border-[#2e3b46] text-zinc-300">
+              <Cpu className="w-4 h-4 text-neutral-300" />
             </div>
             <div>
-              <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-khaki-100 flex items-center space-x-1.5">
-                <span>AI/ML HIGH-ALTITUDE PREDICTIVE CONSUMPTION ENGINE</span>
-                <span className="text-[10px] text-steel-400 font-normal">(ARIMA + LSTM THERMAL MULTI-FACTOR)</span>
+              <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-100 flex items-center space-x-1.5">
+                <span>HIGH-ALTITUDE THERMAL BURNDOWN & MULTI-VARIATE FORECAST</span>
+                <span className="text-[10px] text-neutral-500 font-normal">(XGBoost v2.1)</span>
               </h2>
-              <p className="text-[11px] text-steel-400 font-mono mt-0.5">
-                Target Formation: <strong className="text-khaki-200">{activePost.name}</strong> ({activePost.elevationMeters}m MSL)
+              <p className="text-[11px] text-neutral-400 font-mono mt-0.5">
+                Target Formation: <strong className="text-zinc-200">{activePost.name}</strong> ({activePost.elevationMeters}m MSL)
               </p>
             </div>
           </div>
 
           {/* Model Architecture Selector */}
           <div className="flex items-center space-x-2 font-mono text-xs">
-            <span className="text-steel-400 text-[11px]">FORECASTING MODEL:</span>
-            <div className="inline-flex rounded border border-steel-700 bg-steel-950 p-0.5">
+            <span className="text-neutral-400 text-[11px]">ALGORITHM:</span>
+            <div className="inline-flex border border-[#2a3642] bg-[#0f1317] p-0.5">
               <button
                 onClick={() => setModelType('HYBRID_ML')}
-                className={`px-2 py-1 rounded text-[11px] font-semibold transition-all ${
+                className={`px-2 py-1 text-[11px] font-semibold transition-all ${
                   modelType === 'HYBRID_ML'
-                    ? 'bg-drab-800 text-khaki-100 border border-drab-600'
-                    : 'text-steel-400 hover:text-khaki-200'
+                    ? 'bg-[#25303c] text-zinc-100 border border-[#3b4c5e]'
+                    : 'text-neutral-400 hover:text-zinc-200'
                 }`}
               >
-                MULTI-FACTOR ML (THERMAL + TERRAIN)
+                MULTI-VARIATE REGRESSION (XGBoost v2.1)
               </button>
               <button
                 onClick={() => setModelType('TRADITIONAL_MA')}
-                className={`px-2 py-1 rounded text-[11px] font-semibold transition-all ${
+                className={`px-2 py-1 text-[11px] font-semibold transition-all ${
                   modelType === 'TRADITIONAL_MA'
-                    ? 'bg-drab-800 text-khaki-100 border border-drab-600'
-                    : 'text-steel-400 hover:text-khaki-200'
+                    ? 'bg-[#25303c] text-zinc-100 border border-[#3b4c5e]'
+                    : 'text-neutral-400 hover:text-zinc-200'
                 }`}
               >
                 LEGACY STATIC BURN RATE (MAN-DAY)
@@ -102,13 +102,13 @@ export const PredictiveEngine: React.FC<PredictiveEngineProps> = ({
         {/* Dynamic Contingency Stressor Sliders (Real-time recalculation) */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 font-mono text-xs">
           {/* Slider 1: Temperature Offset */}
-          <div className="bg-steel-950/70 border border-steel-800 p-2.5 rounded">
-            <div className="flex items-center justify-between text-steel-400 mb-1">
+          <div className="bg-[#101418] border border-[#1f2831] p-2.5">
+            <div className="flex items-center justify-between text-neutral-400 mb-1">
               <span className="flex items-center space-x-1 text-[11px]">
                 <Thermometer className="w-3.5 h-3.5 text-red-400" />
                 <span>THERMAL PLUNGE:</span>
               </span>
-              <span className="text-khaki-200 font-bold">{simulationParams.ambientTempOffsetC}°C</span>
+              <span className="text-zinc-100 font-bold">{simulationParams.ambientTempOffsetC}°C</span>
             </div>
             <input
               type="range"
@@ -117,21 +117,21 @@ export const PredictiveEngine: React.FC<PredictiveEngineProps> = ({
               step="1"
               value={simulationParams.ambientTempOffsetC}
               onChange={(e) => onUpdateParams({ ambientTempOffsetC: Number(e.target.value) })}
-              className="w-full accent-drab-500 bg-steel-800 cursor-pointer h-1.5 rounded"
+              className="w-full accent-neutral-400 bg-[#222b33] cursor-pointer h-1.5"
             />
-            <span className="text-[10px] text-steel-500 block mt-1">
-              Fuel heating burn scales exponentially below -20°C
+            <span className="text-[10px] text-neutral-500 block mt-1">
+              Fuel heating burn scales non-linearly below -20°C
             </span>
           </div>
 
           {/* Slider 2: Troop Surge */}
-          <div className="bg-steel-950/70 border border-steel-800 p-2.5 rounded">
-            <div className="flex items-center justify-between text-steel-400 mb-1">
+          <div className="bg-[#101418] border border-[#1f2831] p-2.5">
+            <div className="flex items-center justify-between text-neutral-400 mb-1">
               <span className="flex items-center space-x-1 text-[11px]">
                 <Users className="w-3.5 h-3.5 text-sky-400" />
                 <span>TROOP MOBILIZATION:</span>
               </span>
-              <span className="text-khaki-200 font-bold">+{simulationParams.troopSurgePercent}%</span>
+              <span className="text-zinc-100 font-bold">+{simulationParams.troopSurgePercent}%</span>
             </div>
             <input
               type="range"
@@ -140,21 +140,21 @@ export const PredictiveEngine: React.FC<PredictiveEngineProps> = ({
               step="5"
               value={simulationParams.troopSurgePercent}
               onChange={(e) => onUpdateParams({ troopSurgePercent: Number(e.target.value) })}
-              className="w-full accent-drab-500 bg-steel-800 cursor-pointer h-1.5 rounded"
+              className="w-full accent-neutral-400 bg-[#222b33] cursor-pointer h-1.5"
             />
-            <span className="text-[10px] text-steel-500 block mt-1">
+            <span className="text-[10px] text-neutral-500 block mt-1">
               Reinforcement battalions deployed to forward FDL
             </span>
           </div>
 
           {/* Slider 3: Road Closure Delay */}
-          <div className="bg-steel-950/70 border border-steel-800 p-2.5 rounded">
-            <div className="flex items-center justify-between text-steel-400 mb-1">
+          <div className="bg-[#101418] border border-[#1f2831] p-2.5">
+            <div className="flex items-center justify-between text-neutral-400 mb-1">
               <span className="flex items-center space-x-1 text-[11px]">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
                 <span>AXIS PASS BLOCKAGE:</span>
               </span>
-              <span className="text-khaki-200 font-bold">+{simulationParams.roadClosureDelayHours} hrs</span>
+              <span className="text-zinc-100 font-bold">+{simulationParams.roadClosureDelayHours} hrs</span>
             </div>
             <input
               type="range"
@@ -163,21 +163,21 @@ export const PredictiveEngine: React.FC<PredictiveEngineProps> = ({
               step="6"
               value={simulationParams.roadClosureDelayHours}
               onChange={(e) => onUpdateParams({ roadClosureDelayHours: Number(e.target.value) })}
-              className="w-full accent-drab-500 bg-steel-800 cursor-pointer h-1.5 rounded"
+              className="w-full accent-neutral-400 bg-[#222b33] cursor-pointer h-1.5"
             />
-            <span className="text-[10px] text-steel-500 block mt-1">
+            <span className="text-[10px] text-neutral-500 block mt-1">
               Delay in replenishment convoy arrival
             </span>
           </div>
 
           {/* Forward Formation Selector */}
-          <div className="bg-steel-950/70 border border-steel-800 p-2.5 rounded flex flex-col justify-between">
+          <div className="bg-[#101418] border border-[#1f2831] p-2.5 flex flex-col justify-between">
             <div>
-              <span className="text-steel-400 text-[11px] block mb-1">EVALUATE FORWARD POST:</span>
+              <span className="text-neutral-400 text-[11px] block mb-1">EVALUATE FORWARD POST:</span>
               <select
                 value={selectedPostId}
                 onChange={(e) => onSelectPost(e.target.value)}
-                className="w-full bg-steel-900 border border-steel-700 text-khaki-200 text-xs rounded p-1 font-mono focus:outline-none focus:border-drab-500"
+                className="w-full bg-[#161c22] border border-[#2b3744] text-zinc-200 text-xs p-1 font-mono focus:outline-none focus:border-[#4f6479]"
               >
                 {posts.map((p) => (
                   <option key={p.id} value={p.id}>
@@ -186,7 +186,7 @@ export const PredictiveEngine: React.FC<PredictiveEngineProps> = ({
                 ))}
               </select>
             </div>
-            <div className="text-[10px] text-steel-500 mt-1">
+            <div className="text-[10px] text-neutral-500 mt-1">
               Base strength: {activePost.garrisonStrength} troops
             </div>
           </div>
@@ -195,16 +195,16 @@ export const PredictiveEngine: React.FC<PredictiveEngineProps> = ({
 
       {/* Model Insight Box: The High-Altitude Thermal Gap */}
       {modelType === 'HYBRID_ML' ? (
-        <div className="bg-drab-950/60 border border-drab-800 rounded p-2.5 flex items-start space-x-2 text-xs font-mono text-khaki-200">
-          <Sparkles className="w-4 h-4 text-drab-300 flex-shrink-0 mt-0.5" />
+        <div className="bg-[#14191e] border border-[#242e37] p-2.5 flex items-start space-x-2 text-xs font-mono text-zinc-300">
+          <Activity className="w-4 h-4 text-neutral-400 flex-shrink-0 mt-0.5" />
           <div>
-            <strong className="text-khaki-100">AI MODEL GROUNDING INSIGHT:</strong> At {activePost.elevationMeters}m altitude with ambient temperature of {simulationParams.ambientTempOffsetC}°C,
+            <strong className="text-zinc-100">THERMAL ENGINE COEFFICIENT EXPLANATION:</strong> At {activePost.elevationMeters}m altitude with ambient temperature of {simulationParams.ambientTempOffsetC}°C,
             fuel crystallization risk increases by 64%. Class III Arctic Diesel burn is adjusted upwards by <strong>{((1 + (-simulationParams.ambientTempOffsetC * 0.028)) * 100 - 100).toFixed(0)}%</strong> to power continuous thermal bladder agitators and bukhari heating units.
             Legacy static man-day calculations underestimate depletion by ~3.2 days.
           </div>
         </div>
       ) : (
-        <div className="bg-amber-950/40 border border-amber-800 rounded p-2.5 flex items-start space-x-2 text-xs font-mono text-amber-200">
+        <div className="bg-amber-950/40 border border-amber-800 p-2.5 flex items-start space-x-2 text-xs font-mono text-amber-200">
           <AlertCircle className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
           <div>
             <strong>LEGACY LINEAR CALCULATION ACTIVE:</strong> Standard peacetime consumption factors assume uniform 1.0x burn rate.

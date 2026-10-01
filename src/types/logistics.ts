@@ -21,6 +21,7 @@ export interface SupplyItem {
 
 export interface ForwardPost {
   id: string;
+  designator: string; // e.g. B-17, B-18, B-19, B-22
   code: string;
   name: string;
   sector: 'LADAKH_NORTH' | 'SIACHEN_SUBSECTOR' | 'KARGIL_DRAS' | 'EASTERN_TAWANG';
@@ -44,6 +45,7 @@ export type PassCondition = 'OPEN' | 'ONE_WAY_RESTRICTED' | 'CHAINS_MANDATORY' |
 
 export interface MountainPass {
   id: string;
+  routeCode: string; // e.g. R-17, R-21, R-32
   name: string;
   elevationFt: number;
   axis: string;
