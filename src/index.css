@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0d1114;
+    color: #e5dec9;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom scrollbar matching tactical hardware interface */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #12171c;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a353f;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3e4f5e;
+  }
+}
+
+/* Military tactical utility classes */
+.tactical-border {
+  border: 1px solid #232c35;
+}
+
+.tactical-border-subtle {
+  border: 1px solid #1a2229;
+}
+
+.tactical-panel {
+  background-color: #13181d;
+  border: 1px solid #242e37;
+}
+
+.tactical-panel-elevated {
+  background-color: #171e24;
+  border: 1px solid #2d3a46;
+}
+
+.tactical-header-bg {
+  background-color: #0f1418;
+  border-bottom: 1px solid #232d36;
+}
+
+.tactical-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(42, 54, 66, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(42, 54, 66, 0.25) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
